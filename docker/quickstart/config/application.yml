@@ -4,11 +4,11 @@ armadillo:
   profiles:
     - name: default
       image: datashield/rock-base:latest
-      port: 6311 
-      host: localhost:6311 
+      port: 8085
+      host: rserver
       package-whitelist:
         - dsBase
-      function-blacklist: [ ]
+      function-blacklist: []
       options:
         datashield:
           seed: 342325352
@@ -18,25 +18,25 @@ spring:
   security:
     user:
       # please change this admin password!
-      password: admin!!!
+      password: admin
     oauth2:
       client:
         provider:
           molgenis:
-            issuer-uri: 'http://keycloak:8080/realms/Armadillo'
+            issuer-uri: "http://keycloak:8080/realms/Armadillo"
         registration:
           molgenis:
-            client-id: 'Armadillo'
-            client-secret: 'nAZS57Lj2BvHpcXXMFfyx5rqfnPd5BCu'
+            client-id: "Armadillo"
+            client-secret: "nAZS57Lj2BvHpcXXMFfyx5rqfnPd5BCu"
             scope:
               - openid
               - profile
               - email
       resourceserver:
         jwt:
-          issuer-uri: 'http://keycloak:8080/realms/Armadillo'
+          issuer-uri: "http://keycloak:8080/realms/Armadillo"
         opaquetoken:
-          client-id: 'Armadillo-DeviceLogin'
+          client-id: "Armadillo-DeviceLogin"
 
   # optional settings (review spring handbook to find more):
   servlet:
@@ -50,9 +50,9 @@ storage:
   root-dir: /data
 
 # Match with Dockerfile volume /logs
-audit.log.path: '/logs/audit.log'
+audit.log.path: "/logs/audit.log"
 
-stdout.log.path: '/logs/armadillo.log'
+stdout.log.path: "/logs/armadillo.log"
 
 logging:
   level:

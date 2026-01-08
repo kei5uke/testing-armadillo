@@ -490,7 +490,9 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "nAZS57Lj2BvHpcXXMFfyx5rqfnPd5BCu",
       "redirectUris": [
-        "http://localhost:8000/*"
+        "http://localhost:8000/*",
+        "http://armadillo:8000/*",
+        "http://127.0.0.1:8000/*"
       ],
       "webOrigins": [
         "http://localhost:8000"
@@ -542,18 +544,20 @@
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
-      "clientAuthenticatorType": "client-secret",
+      "clientAuthenticatorType": "none",
       "secret": "**********",
       "redirectUris": [
-        "http://localhost:8000/*"
+        "http://localhost:8000/*",
+        "http://armadillo:8000/*",
+        "http://127.0.0.1:8000/*"
       ],
       "webOrigins": [
-        "http://localhost:8000"
+        "*"
       ],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,
-      "standardFlowEnabled": false,
+      "standardFlowEnabled": true,
       "implicitFlowEnabled": false,
       "directAccessGrantsEnabled": false,
       "serviceAccountsEnabled": false,
@@ -564,7 +568,7 @@
         "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1756200930",
         "backchannel.logout.session.required": "true",
-        "oauth2.device.authorization.grant.enabled": "false",
+        "oauth2.device.authorization.grant.enabled": "true",
         "backchannel.logout.revoke.offline.tokens": "false"
       },
       "authenticationFlowBindingOverrides": {},
@@ -2317,5 +2321,32 @@
   },
   "clientPolicies": {
     "policies": []
-  }
+  },
+  "users": [
+    {
+      "username": "test",
+      "email": "test@test.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test", 
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "default-roles-armadillo"
+      ],
+      "clientRoles": {
+        "account": [
+          "manage-account",
+          "view-profile"
+        ]
+      },
+      "groups": []
+    }
+  ]
 }
